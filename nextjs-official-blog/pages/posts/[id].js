@@ -24,6 +24,7 @@ function Post(props) {
   )
 }
 
+// 动态路由id所有可能的路径值，path是一个数组
 export async function getStaticPaths() {
   const paths = getAllPostIds()
   return {
@@ -32,7 +33,9 @@ export async function getStaticPaths() {
   }
 }
 
+// 根据id的所对应的值，去请求响应的数据
 export async function getStaticProps({ params }) {
+  // 获取数据可以从外部API获取，此处从当前项目文件夹获取
   const postData = await getPostData(params.id)
   return {
     props: {

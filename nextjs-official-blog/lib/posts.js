@@ -38,6 +38,7 @@ function getSortedPostsData() {
   });
 }
 
+// 动态路径的所有可能性
 function getAllPostIds() {
   const fileNames = fs.readdirSync(postsDirectory);
   // Returns an array that looks like this:
@@ -62,6 +63,7 @@ function getAllPostIds() {
   });
 }
 
+// 根据id 拿到 博文的数据
 async function getPostData(id) {
   const fullPath = path.join(postsDirectory, `${id}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
